@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/hoehwa/gopkg/charm/bubbletea/listfancy"
 )
 
@@ -115,11 +117,15 @@ func main() {
 		"Maybe",
 		"Sure, why not?",
 	}
+	var selection *string
 
-	var dummyCallout = listfancy.Callout{
-		Titles: titles,
-		Descs:  descs,
-	}
+	var dummyCallout = listfancy.NewCallout(listfancy.Callout{
+		Titles:    titles,
+		Descs:     descs,
+		Selection: selection,
+	})
 
-	listfancy.Run(dummyCallout)
+	fmt.Println("main called")
+	listfancy.Run(*dummyCallout)
+	fmt.Println(*dummyCallout.Selection)
 }
