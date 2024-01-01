@@ -95,7 +95,7 @@ func newModel(callout Callout) model {
 	}
 
 	// Setup list
-	delegate := newItemDelegate(delegateKeys)
+	delegate := newItemDelegate(delegateKeys, callout)
 	groceryList := list.New(items, delegate, 0, 0)
 	groceryList.Title = "Groceries"
 	groceryList.Styles.Title = titleStyle
