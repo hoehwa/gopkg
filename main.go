@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/hoehwa/gopkg/charm/bubbletea/listfancy"
+	"github.com/hoehwa/gopkg/bubbletea/listfancy"
 )
 
 // for human test. currently, some third party packages such as charmbraclet/bubbletea
@@ -126,6 +126,6 @@ func main() {
 	})
 
 	fmt.Println("main called")
-	listfancy.Run(*dummyCallout)
+	listfancy.InitCallout(*dummyCallout)
 	fmt.Println(*dummyCallout.Selection)
 }
