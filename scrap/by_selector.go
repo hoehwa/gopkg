@@ -1,4 +1,4 @@
-package goquery
+package scrap
 
 import (
 	"log"
@@ -7,7 +7,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func queryBySelector(url string, cssSelector string) string {
+func bySelector(url string, cssSelector string) string {
 
 	res, err := http.Get(url)
 	if err != nil {

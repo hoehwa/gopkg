@@ -1,4 +1,4 @@
-package chroma
+package beautify
 
 import (
 	"log"
@@ -17,7 +17,7 @@ func readFileAt(fileAbsPath string) string {
 	return string(readStream)
 }
 
-func PrettyRawContent(basePath string, subPath string) {
+func RawContent(basePath string, subPath string) {
 	srcPath := basePath + "/" + subPath
 	contents := readFileAt(srcPath)
 	quick.Highlight(os.Stdout, contents, subPath, "terminal", "monokai")
