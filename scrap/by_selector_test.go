@@ -6,5 +6,5 @@ import (
 )
 
 func TestBySelector(t *testing.T) {
-	fmt.Println(bySelector("https://jsonplaceholder.typicode.com/", "#hero"))
+	fmt.Println(BySelector("https://jsonplaceholder.typicode.com/", "#hero"))
 }
