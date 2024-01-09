@@ -7,7 +7,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func bySelector(url string, cssSelector string) string {
+func BySelector(url string, cssSelector string) string {
 
 	res, err := http.Get(url)
 	if err != nil {
