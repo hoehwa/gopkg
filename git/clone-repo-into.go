@@ -21,7 +21,7 @@ func info(format string, args ...interface{}) {
 	fmt.Printf("\x1b[34;1m%s\x1b[0m\n", fmt.Sprintf(format, args...))
 }
 
-func Clone(owner string, repo string, path string) {
+func CloneRepoInto(owner string, repo string, path string) {
 	// Clone the given repository to the given directory
 	targetURL := fmt.Sprintf("https://github.com/%s/%s", owner, repo)
 
