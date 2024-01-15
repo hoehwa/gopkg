@@ -17,8 +17,8 @@ func readFileAt(fileAbsPath string) string {
 	return string(readStream)
 }
 
-func RawContent(basePath string, subPath string) {
-	srcPath := basePath + "/" + subPath
+func RawContent(path string, file string) {
+	srcPath := path + "/" + file
 	contents := readFileAt(srcPath)
-	quick.Highlight(os.Stdout, contents, subPath, "terminal", "monokai")
+	quick.Highlight(os.Stdout, contents, file, "terminal", "monokai")
 }
