@@ -1,7 +1,6 @@
 package listfancy
 
 import (
-	"math/rand"
 	"sync"
 )
 
@@ -10,7 +9,6 @@ type itemGenerator struct {
 	titleIndex int
 	descIndex  int
 	mtx        *sync.Mutex
-	shuffle    *sync.Once
 }
 
 func (i *itemGenerator) setCallout(callout Callout) {
@@ -23,15 +21,6 @@ func (i *itemGenerator) getCalloutLength() int {
 
 func (i *itemGenerator) reset() {
 	i.mtx = &sync.Mutex{}
-	i.shuffle = &sync.Once{}
-
-	i.shuffle.Do(func() {
-		shuf := func(x []string) {
-			rand.Shuffle(len(x), func(i, j int) { x[i], x[j] = x[j], x[i] })
-		}
-		shuf(i.callout.Titles)
-		shuf(i.callout.Descs)
-	})
 }
 
 func (i *itemGenerator) next() Item {
