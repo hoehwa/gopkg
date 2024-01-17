@@ -20,10 +20,10 @@ var (
 	quitTextStyle     = lipgloss.NewStyle().Margin(1, 0, 2, 4)
 )
 
-func Init(itemStrs []string) {
+func Init(itemData []string) {
 	var items []list.Item
 
-	for _, str := range itemStrs {
+	for _, str := range itemData {
 		items = append(items, item(str))
 	}
 
