@@ -34,7 +34,7 @@ func (i *itemGenerator) reset() {
 	})
 }
 
-func (i *itemGenerator) next() item {
+func (i *itemGenerator) next() Item {
 	if i.mtx == nil {
 		i.reset()
 	}
@@ -42,7 +42,7 @@ func (i *itemGenerator) next() item {
 	i.mtx.Lock()
 	defer i.mtx.Unlock()
 
-	idx := item{
+	idx := Item{
 		title:       i.callout.Titles[i.titleIndex],
 		description: i.callout.Descs[i.descIndex],
 	}

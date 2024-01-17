@@ -10,10 +10,10 @@ func newItemDelegate(keys *delegateKeyMap, callout Callout) list.DefaultDelegate
 	d := list.NewDefaultDelegate()
 
 	d.UpdateFunc = func(msg tea.Msg, m *list.Model) tea.Cmd {
-		var title string
+		var selectedItem Item
 
-		if i, ok := m.SelectedItem().(item); ok {
-			title = i.Title()
+		if i, ok := m.SelectedItem().(Item); ok {
+			selectedItem = i
 		} else {
 			return nil
 		}
@@ -22,8 +22,8 @@ func newItemDelegate(keys *delegateKeyMap, callout Callout) list.DefaultDelegate
 		case tea.KeyMsg:
 			switch {
 			case key.Matches(msg, keys.choose):
-				*callout.Selection = title
-				return m.NewStatusMessage(statusMessageStyle("You chose " + title))
+				*callout.Selection = selectedItem
+				return m.NewStatusMessage(statusMessageStyle("You chose " + selectedItem.Title()))
 
 			case key.Matches(msg, keys.remove):
 				index := m.Index()
@@ -31,7 +31,7 @@ func newItemDelegate(keys *delegateKeyMap, callout Callout) list.DefaultDelegate
 				if len(m.Items()) == 0 {
 					keys.remove.SetEnabled(false)
 				}
-				return m.NewStatusMessage(statusMessageStyle("Deleted " + title))
+				return m.NewStatusMessage(statusMessageStyle("Deleted " + selectedItem.Title()))
 			}
 		}
 

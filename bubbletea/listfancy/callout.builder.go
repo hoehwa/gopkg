@@ -3,7 +3,7 @@ package listfancy
 type Callout struct {
 	Titles    []string
 	Descs     []string
-	Selection *string
+	Selection *Item
 }
 
 func NewCallout(params Callout) *Callout {
@@ -17,7 +17,10 @@ func NewCallout(params Callout) *Callout {
 	}
 
 	if callout.Selection == nil {
-		defaultSelection := "default selection"
+		defaultSelection := Item{
+			title:       "Default Title",
+			description: "Default Description",
+		}
 		callout.Selection = &defaultSelection
 	}
 
