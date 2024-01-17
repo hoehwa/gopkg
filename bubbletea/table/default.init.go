@@ -9,9 +9,7 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-func Init(colData table.Column, rowData table.Row) {
-	columns := []table.Column{colData}
-	rows := []table.Row{rowData}
+func Init(columns []table.Column, rows []table.Row) {
 
 	t := table.New(
 		table.WithColumns(columns),
